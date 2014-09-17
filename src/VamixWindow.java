@@ -9,7 +9,6 @@ import javax.swing.SwingUtilities;
 public class VamixWindow extends JFrame {
 	
 	private JButton _download = new JButton("Download");
-	private JButton _btnD = new JButton("Download");
 	private JButton _play = new JButton("Play");
 	private JButton _quit = new JButton("Quit");
 	
@@ -28,6 +27,21 @@ public class VamixWindow extends JFrame {
 				downloadFrame.setVisible(!downloadFrame.isVisible());
 
 			}
+		});
+		
+		_play.addActionListener(new ActionListener(){
+
+			JFrame playFrame = null;
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if(playFrame == null){
+					playFrame = new PlayFrame();
+				}
+				
+				
+			}
+			
 		});
 	}
 	
