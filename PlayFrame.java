@@ -27,6 +27,7 @@ public class PlayFrame extends JFrame{
    	private JButton _play = new JButton("▷"); 
    	private JButton _pause = new JButton("||"); 
    	private JButton _extract = new JButton("Extract audio from video");
+   	private JButton _addText = new JButton("Add Text to Video");
    	private JButton _close = new JButton("close");
    	private JButton _mute = new JButton("mute");
    	
@@ -40,7 +41,8 @@ public class PlayFrame extends JFrame{
    	private long _time = 4000;
    	private float _speed = 1.5f;
     
-    public static void main (final String args[]) { 
+    public static void main (final String args[]) {
+    
     	SwingUtilities.invokeLater(new Runnable() {
     		
 			@Override
@@ -62,6 +64,7 @@ public class PlayFrame extends JFrame{
     	_panel.add(_skipF);
     	_panel.add(_mute);
     	_panel.add(_extract);
+    	_panel.add(_addText);
     	_panel.add(_close);
     	_frame.setVisible(true);
     	_mediaPlayer = new EmbeddedMediaPlayerComponent(); 
@@ -83,12 +86,21 @@ public class PlayFrame extends JFrame{
     		_frame.getContentPane().add(_panel, BorderLayout.SOUTH);
     		_mediaPlayer.getMediaPlayer().playMedia(_file);
     	}
-    	    	
+    	    
+    	
+    	_addText.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+    	
     	_close.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//_mediaPlayer.getMediaPlayer().stop();
+				_mediaPlayer.getMediaPlayer().stop();
 				_frame.setVisible(false);
 				_frame.dispose();
 			}
